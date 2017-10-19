@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20171019231603) do
     t.string   "name"
     t.integer  "color_id"
     t.integer  "size_id"
+    t.integer  "condition_id"
     t.string   "brand"
     t.string   "image"
     t.text     "note"
@@ -46,12 +47,12 @@ ActiveRecord::Schema.define(version: 20171019231603) do
   end
 
   add_index "items", ["color_id"], name: "index_items_on_color_id", using: :btree
+  add_index "items", ["condition_id"], name: "index_items_on_condition_id", using: :btree
   add_index "items", ["size_id"], name: "index_items_on_size_id", using: :btree
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "order_id"
     t.integer  "item_id"
-    t.integer  "user_id"
     t.float    "price"
     t.integer  "status_id"
     t.date     "rent_date"
@@ -64,7 +65,6 @@ ActiveRecord::Schema.define(version: 20171019231603) do
   add_index "order_items", ["item_id"], name: "index_order_items_on_item_id", using: :btree
   add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
   add_index "order_items", ["status_id"], name: "index_order_items_on_status_id", using: :btree
-  add_index "order_items", ["user_id"], name: "index_order_items_on_user_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.integer  "contributor_id"
@@ -89,12 +89,6 @@ ActiveRecord::Schema.define(version: 20171019231603) do
   end
 
   create_table "statuses", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tags", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -127,9 +121,9 @@ ActiveRecord::Schema.define(version: 20171019231603) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "items", "colors"
+  add_foreign_key "items", "conditions"
   add_foreign_key "items", "sizes"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "statuses"
-  add_foreign_key "order_items", "users"
 end

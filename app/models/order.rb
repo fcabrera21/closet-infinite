@@ -1,3 +1,7 @@
 class Order < ActiveRecord::Base
-  belongs_to :item
+  
+	# Relationships
+  has_many :order_items
+  has_many :items, through: :order_items
+  belongs_to :user
 end
