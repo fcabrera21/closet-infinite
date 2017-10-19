@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  color_id: 
+  size_id: 
+  brand: MyString
+  image: MyString
+  note: MyText
+  renting_price: 1.5
+  purchase: false
+  selling_price: 1.5
+  avg_rating: 1.5
+  active: false
+
+two:
+  name: MyString
+  color_id: 
+  size_id: 
+  brand: MyString
+  image: MyString
+  note: MyText
+  renting_price: 1.5
+  purchase: false
+  selling_price: 1.5
+  avg_rating: 1.5
+  active: false
