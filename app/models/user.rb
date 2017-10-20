@@ -7,4 +7,20 @@ class User < ActiveRecord::Base
   # Relationships
   has_many :orders
   has_many :ratings 
+
+  # Scopes
+  # scope :active,       -> { where(active: true) }
+  # scope :inactive,     -> { where(active: false) }
+  scope :by_type,      -> { order(:type }
+  scope :alphabetical, -> { order(:username) }
+  scope :admins,    	 -> { where(type: 'admin') }
+  scope :shoppers,     -> { where(type: 'shopper') }
+  scope :contributors, -> { where(type: 'contributor') }
+
+  TYPES = [['Administrator', :admin],['Shopper', :shopper],['Contributor', :contributor]]
+
+  def role?(authorized_type)
+    return false if type.nil?
+    type.downcase.to_sym == authorized_type
+  end
 end
