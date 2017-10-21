@@ -5,14 +5,14 @@ class Item < ActiveRecord::Base
   belongs_to :condition
   has_many :order_items
   has_many :orders, through: :order_items
-  has_many :color_items
+  has_many :item_colors
   has_many :colors, through: :color_items
 
   # Scopes
   scope :alphabetical, -> { order(:name) }
   scope :active,       -> { where(active: true) }
   scope :inactive,     -> { where(active: false) }
-  # scope :for_color, ->(color_id) { joins(:color).where(color: color_id) }
+  # scope :for_color, ->(color_id) { joins(:item_color).where(item_colors.color: color_id) }
   # scope :for_condition, ->(condition_id) { joins(:condition).where(condition: condition_id) }
   # scope :for_size, ->(size_id) { joins(:size).where(size: size_id) }
   # scope :available, -> { joins(:order_items).where('order_items.returned = ?', false) }
