@@ -12,7 +12,7 @@ class Condition < ActiveRecord::Base
 
   private
   def is_destroyable?
-    @destroyable = (self.items.empty?
+    @destroyable = self.items.empty?
   end
   
   def convert_to_inactive
