@@ -5,6 +5,7 @@ class CreateItems < ActiveRecord::Migration
       t.references :size, index: true, foreign_key: true
       t.references :condition, index: true, foreign_key: true
       t.string :brand
+      t.string :gender
       t.string :image
       t.text :note
       t.float :renting_price

@@ -1,4 +1,6 @@
 class Item < ActiveRecord::Base
+
+  GENDERS = [['Male','male'],['Female','female'],['Unisex','unisex']]
   
 	# Relationships
   belongs_to :size
@@ -21,6 +23,7 @@ class Item < ActiveRecord::Base
   validates_presence_of :name, :renting_price, :selling_price
   validates_numericality_of :renting_price, :selling_price, greater_than_or_equal_to: 0
   validates_numericality_of :avg_rating, greater_than_or_equal_to: 0, less_than_or_equal_to: 5
+  validates_inclusion_of :gender, in: GENDERS.map{|key, value| value}, message: "is not a valid option"
 
   # Callbacks
   before_destroy :is_destroyable?

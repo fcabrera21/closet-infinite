@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20171021035744) do
     t.integer  "size_id"
     t.integer  "condition_id"
     t.string   "brand"
+    t.string   "gender"
     t.string   "image"
     t.text     "note"
     t.float    "renting_price"
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(version: 20171021035744) do
 
   create_table "statuses", force: :cascade do |t|
     t.string   "name"
+    t.boolean  "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
