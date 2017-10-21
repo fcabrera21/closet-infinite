@@ -23,7 +23,7 @@ FactoryGirl.define do
     brand "Forever 21"
     image nil
     note "Classy but simple gown for all formal occaisions"
-    gender: "female"
+    gender "female"
     renting_price 5.00
     purchase false
     selling_price 25.00

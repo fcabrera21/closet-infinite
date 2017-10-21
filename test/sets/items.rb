@@ -9,8 +9,8 @@ module Contexts
                     brand: "Nordstrom",
                     gender: "female",
                     note: "Perfect dress for both a date and an interview.",
-                    renting_price: 12.00
-                    purchase: true
+                    renting_price: 12.00,
+                    purchase: true,
                     selling_price: 60.00)
 
       @red_black_gown = FactoryGirl.create(:item)
@@ -22,8 +22,8 @@ module Contexts
                     brand: "Forever 21",
                     gender: "female",
                     note: "Great for summer days!",
-                    renting_price: 4.00
-                    purchase: true
+                    renting_price: 4.00,
+                    purchase: true,
                     selling_price: 12.00)
 
       @red_blue_jeans = FactoryGirl.create(:item,
@@ -33,8 +33,8 @@ module Contexts
                     brand: "Levi's",
                     gender: "male",
                     note: "Great for looking straight-up terrifying. Only wear on Halloween.",
-                    renting_price: 8.00
-                    purchase: false
+                    renting_price: 8.00,
+                    purchase: false,
                     selling_price: 40.00)
 
       @black_blazer = FactoryGirl.create(:item,
@@ -44,8 +44,8 @@ module Contexts
                     brand: "Macy's",
                     gender: "male",
                     note: "Fantastic fit. Be sure to take good care of it.",
-                    renting_price: 20.00
-                    purchase: false
+                    renting_price: 20.00,
+                    purchase: false,
                     selling_price: 120.00)
 
       @red_shirt = FactoryGirl.create(:item,
@@ -55,8 +55,8 @@ module Contexts
                     brand: "H&M",
                     gender: "unisex",
                     note: "The most essential red shirt. Fits anyone.",
-                    renting_price: 2.00
-                    purchase: true
+                    renting_price: 2.00,
+                    purchase: true,
                     selling_price: 9.00)
 
 
@@ -73,15 +73,3 @@ module Contexts
 
   end
 end
-
-
-
-
-    t.string   "gender"
-    t.string   "image"
-    t.text     "note"
-    t.float    "renting_price"
-    t.boolean  "purchase"
-    t.float    "selling_price"
-    t.float    "avg_rating"
-    t.boolean  "active"

@@ -6,6 +6,11 @@ class Condition < ActiveRecord::Base
   # Validations
   validates_presence_of :name
 
+  # Scopes
+  scope :alphabetical, -> { order(:name) }
+  scope :active,       -> { where(active: true) }
+  scope :inactive,     -> { where(active: false) }
+
   # Callbacks
   before_destroy :is_destroyable?
   after_rollback :convert_to_inactive
