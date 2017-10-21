@@ -4,13 +4,13 @@ module Contexts
     
     def create_colors
       @red = FactoryGirl.create(:color)
-      @yellow = FactoryGirl.create(:color, name: "Yellow")
+      @black = FactoryGirl.create(:color, name: "Black")
       @blue = FactoryGirl.create(:color, name: "Blue")
     end
     
     def destroy_colors
       @red.delete
-      @yellow.delete
+      @black.delete
       @blue.delete
     end
 

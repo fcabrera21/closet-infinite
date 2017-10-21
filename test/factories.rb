@@ -6,7 +6,7 @@ FactoryGirl.define do
   end
 
   factory :size do
-    name "S"
+    name "Small"
     active true
   end
 
