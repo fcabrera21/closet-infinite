@@ -38,6 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :type
       t.float :avg_rating
       t.string :photo
+      t.boolean :active
 
       t.timestamps null: false
     end

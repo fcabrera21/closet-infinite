@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019231603) do
+ActiveRecord::Schema.define(version: 20171021035744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,19 +19,30 @@ ActiveRecord::Schema.define(version: 20171019231603) do
   create_table "colors", force: :cascade do |t|
     t.string   "name"
     t.string   "image"
+    t.boolean  "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "conditions", force: :cascade do |t|
     t.string   "name"
+    t.boolean  "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "item_colors", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "color_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "item_colors", ["color_id"], name: "index_item_colors_on_color_id", using: :btree
+  add_index "item_colors", ["item_id"], name: "index_item_colors_on_item_id", using: :btree
+
   create_table "items", force: :cascade do |t|
     t.string   "name"
-    t.integer  "color_id"
     t.integer  "size_id"
     t.integer  "condition_id"
     t.string   "brand"
@@ -46,7 +57,6 @@ ActiveRecord::Schema.define(version: 20171019231603) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "items", ["color_id"], name: "index_items_on_color_id", using: :btree
   add_index "items", ["condition_id"], name: "index_items_on_condition_id", using: :btree
   add_index "items", ["size_id"], name: "index_items_on_size_id", using: :btree
 
@@ -84,6 +94,7 @@ ActiveRecord::Schema.define(version: 20171019231603) do
 
   create_table "sizes", force: :cascade do |t|
     t.string   "name"
+    t.boolean  "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -113,6 +124,7 @@ ActiveRecord::Schema.define(version: 20171019231603) do
     t.string   "type"
     t.float    "avg_rating"
     t.string   "photo"
+    t.boolean  "active"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
@@ -120,7 +132,8 @@ ActiveRecord::Schema.define(version: 20171019231603) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "items", "colors"
+  add_foreign_key "item_colors", "colors"
+  add_foreign_key "item_colors", "items"
   add_foreign_key "items", "conditions"
   add_foreign_key "items", "sizes"
   add_foreign_key "order_items", "items"

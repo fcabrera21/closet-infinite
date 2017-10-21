@@ -8,10 +8,12 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :ratings 
 
+  # Validations
+
   # Scopes
   # scope :active,       -> { where(active: true) }
   # scope :inactive,     -> { where(active: false) }
-  scope :by_type,      -> { order(:type }
+  scope :by_type,      -> { order(:type) }
   scope :alphabetical, -> { order(:username) }
   scope :admins,    	 -> { where(type: 'admin') }
   scope :shoppers,     -> { where(type: 'shopper') }
