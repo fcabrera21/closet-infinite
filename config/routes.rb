@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :items
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -32,6 +33,8 @@ Rails.application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
+
+  resources :items, :path => 'catalog'
 
   # Example resource route with more complex sub-resources:
   #   resources :products do

@@ -1,4 +1,6 @@
 class Item < ActiveRecord::Base
+   extend FriendlyId
+   friendly_id :name, use: :slugged
 
   GENDERS = [['Male','male'],['Female','female'],['Unisex','unisex']]
   

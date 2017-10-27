@@ -17,6 +17,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'pg'
 gem 'pg_search'
+gem 'friendly_id', '~> 5.1.0'
 # gem 'turbolinks', '2.2.1'
 gem 'jbuilder', '1.5.3'
 group :doc do
