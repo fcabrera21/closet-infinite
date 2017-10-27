@@ -11,10 +11,11 @@ class User < ActiveRecord::Base
   # Validations
 
   # Scopes
-  # scope :active,       -> { where(active: true) }
-  # scope :inactive,     -> { where(active: false) }
+  scope :active,       -> { where(active: true) }
+  scope :inactive,     -> { where(active: false) }
   scope :by_type,      -> { order(:type) }
-  scope :alphabetical, -> { order(:username) }
+  scope :by_username,  -> { order(:username) }
+  scope :by_name,      -> { order(:first_name).order(:last_name) }
   scope :admins,    	 -> { where(type: 'admin') }
   scope :shoppers,     -> { where(type: 'shopper') }
   scope :contributors, -> { where(type: 'contributor') }

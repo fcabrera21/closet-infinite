@@ -18,6 +18,7 @@ class Item < ActiveRecord::Base
   # scope :for_condition, ->(condition_id) { joins(:condition).where(condition: condition_id) }
   # scope :for_size, ->(size_id) { joins(:size).where(size: size_id) }
   # scope :available, -> { joins(:order_items).where('order_items.returned = ?', false) }
+  scope :most_recent,  -> { order(:created_at) } 
 
   # Validations
   validates_presence_of :name, :renting_price, :selling_price

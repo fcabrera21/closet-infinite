@@ -16,6 +16,7 @@ gem 'omniauth-google'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'pg'
+gem 'pg_search'
 # gem 'turbolinks', '2.2.1'
 gem 'jbuilder', '1.5.3'
 group :doc do
@@ -81,7 +82,7 @@ end
 
 group :production do
   #gem 'sqlite3'
-  gem 'pg'
+  # gem 'pg'
   gem 'puma'
   gem 'rails_12factor'
 end
