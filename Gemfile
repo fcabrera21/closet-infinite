@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 # Gems rails wants automatically
 gem 'rails', '4.2.7'
 gem 'sass-rails'
-gem 'foundation-rails', '5.1.1.0'
+gem 'foundation-rails', '5.5.3.2'
 gem 'autoprefixer-rails'
 gem 'uglifier', '2.5.0'
 gem 'coffee-rails', '4.0.1'
