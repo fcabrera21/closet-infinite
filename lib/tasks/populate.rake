@@ -17,6 +17,7 @@ namespace :db do
 	    order_received = Status.new
 	    order_received.name = "Order Received"
 	    order_received.active = true
+	    order_received.save!
 
 	    # Step 2: Add Colors
 	    red = Color.new
@@ -27,6 +28,9 @@ namespace :db do
 	    small = Size.new
 	    small.name = "Small"
 	    small.active = true
+
+	    # Step 4: Add Items
+
 
 
 	    # Step 1bii: Add Sina
