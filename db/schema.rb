@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20171021035744) do
   add_index "item_colors", ["item_id"], name: "index_item_colors_on_item_id", using: :btree
 
   create_table "items", force: :cascade do |t|
+    t.integer  "code"
     t.string   "name"
     t.integer  "size_id"
     t.integer  "condition_id"

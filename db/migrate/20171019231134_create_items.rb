@@ -1,6 +1,7 @@
 class CreateItems < ActiveRecord::Migration
   def change
     create_table :items do |t|
+      t.integer :code
       t.string :name
       t.references :size, index: true, foreign_key: true
       t.references :condition, index: true, foreign_key: true
